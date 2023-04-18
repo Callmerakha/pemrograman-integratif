@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package presensi;
+
+service PresensiService {
+  rpc AddMhs (AddMhsRequest) returns (Mhs) {}
+  rpc GetAllMhss (Empty) returns (MhsList) {}
+  rpc GetMhs (GetMhsRequest) returns (Mhs) {}
+  rpc UpdateMhs (UpdateMhsRequest) returns (Mhs) {}
+  rpc DeleteMhs (DeleteMhsRequest) returns (Mhs) {}
+}
+
+message Mhs {
+  string id = 1;
+  string nama = 2;
+  string nrp = 3;
+}
+
+message AddMhsRequest {
+  Mhs mhs = 1;
+}
+  
+message Empty {}
+
+message GetMhsRequest {
+  string id = 1;
+}
+
+message UpdateMhsRequest {
+  Mhs mhs = 1;
+}
+
+message DeleteMhsRequest {
+  string id = 1;
+}
+
+message MhsList {
+repeated Mhs mhss = 1;
+}
+
+
